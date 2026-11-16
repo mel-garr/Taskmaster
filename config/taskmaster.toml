@@ -1,0 +1,6 @@
+[[programs]]
+name = "worker"
+cmd = "python3 examples/worker.py"
+numprocs = 2
+autostart = true
+autorestart = "unexpected"
