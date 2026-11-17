@@ -1,6 +1,17 @@
 [[programs]]
 name = "worker"
 cmd = "python3 examples/worker.py"
-numprocs = 2
+numprocs = 1
 autostart = true
 autorestart = "unexpected"
+exitcodes = [0]
+starttime = 1
+startretries = 3
+stopsignal = "TERM"
+stoptime = 10
+stdout = "logs/worker.log"
+stderr = "logs/worker_error.log"
+umask = 18
+
+[programs.env]
+TASKMASTER = "true"
