@@ -1,0 +1,17 @@
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+
+# Runtime logs
+logs/
+*.log
+
+# Test and coverage artifacts
+.coverage
+.pytest_cache/

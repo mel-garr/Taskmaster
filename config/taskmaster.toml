@@ -1,6 +1,6 @@
 [[programs]]
 name = "worker"
-cmd = "python3 examples/worker.py"
+cmd = "python3 -c 'import time; time.sleep(1000)'"
 numprocs = 1
 autostart = true
 autorestart = "unexpected"

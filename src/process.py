@@ -11,6 +11,7 @@ class Process:
         self.config = config
         self.popen = None
         self.started_at = None
+        self.finished_at = None
         self.stdout_file = None
         self.stderr_file = None
 
@@ -51,18 +52,26 @@ class Process:
             )
 
             self.started_at = time.monotonic()
+            self.finished_at = None
             return True
         
         except (OSError, ValueError):
             self._close_logs()
             self.popen = None
+            self.started_at = None
+            self.finished_at = None
             return False
 
     def is_alive(self):
         if self.popen is None:
             return False
 
-        return self.popen.poll() is None
+        exit_code = self.popen.poll()
+
+        if exit_code is not None and self.finished_at is None:
+            self.finished_at = time.monotonic()
+
+        return exit_code is None
 
     def get_status(self):
         if self.popen is None:
