@@ -224,3 +224,4 @@ The test suite covers configuration validation, process management, shell comman
 
 Use the `exit` or `quit` command in the interactive shell, or press `Ctrl+C` / send EOF to exit. Taskmaster stops its supervised processes during shutdown.
 
+<!-- python3 -m unittest discover -s tests -v -->
